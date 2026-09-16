@@ -1,0 +1,6 @@
+import { ChevronDown, CircleHelp, LifeBuoy, LockKeyhole } from "../lib/icons";
+
+export function Help() {
+  const faqs = ["What evidence should I provide?", "Can I save an application and return later?", "How does ClearGov assess my evidence?", "What happens if something is missing?"];
+  return <main className="page-shell help-page"><div className="page-intro"><div><span className="eyebrow">Support and guidance</span><h1>Help centre</h1><p>Clear answers about applications, evidence, and what happens next.</p></div><div className="help-mark"><CircleHelp size={25} /></div></div><div className="help-grid"><section className="help-panel"><h2>Frequently asked questions</h2>{faqs.map((faq) => <button className="faq" key={faq}><span>{faq}</span><ChevronDown size={17} /></button>)}</section><section className="help-contact"><div className="help-contact-icon"><LifeBuoy size={21} /></div><h2>Need more help?</h2><p>We’ll point you to the right support team if your question is about a specific service or application.</p><button className="button button--primary">Contact support</button></section></div><div className="detail-callout"><LockKeyhole size={18} /><div><b>Your privacy matters</b><p>Only provide documents relevant to the service you are applying for. ClearGov never asks for passwords or banking PINs.</p></div></div></main>;
+}

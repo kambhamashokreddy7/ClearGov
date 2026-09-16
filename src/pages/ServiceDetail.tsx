@@ -1,0 +1,9 @@
+import { ArrowLeft, ArrowRight, Check, FileText, LockKeyhole } from "../lib/icons";
+import { Service } from "../types";
+
+export function ServiceDetail({ service, onBack, onStart }: { service: Service; onBack: () => void; onStart: () => void }) {
+  return <main className="page-shell detail-page"><button className="back-link" onClick={onBack}><ArrowLeft size={16} /> Back to services</button><div className="detail-hero"><div className="service-icon service-icon--large"><FileText size={25} /></div><div><span className="eyebrow">{service.category}</span><h1>{service.name}</h1><p>{service.detail}</p></div><button className="button button--primary" onClick={onStart}>Start application <ArrowRight size={16} /></button></div>
+    <div className="detail-grid"><section className="detail-panel"><div className="panel-heading"><span className="panel-number">01</span><div><h2>Eligibility requirements</h2><p>These are the conditions you may need to meet. You will provide your information during the application.</p></div></div><ul className="check-list">{service.eligibility.map((item) => <li key={item}><span><Check size={14} /></span>{item}</li>)}</ul></section><section className="detail-panel"><div className="panel-heading"><span className="panel-number">02</span><div><h2>Required evidence</h2><p>ClearGov will assess the evidence you submit against each requirement.</p></div></div><ul className="evidence-list">{service.evidence.map((item, index) => <li key={item}><FileText size={17} /><div><b>{item}</b><small>Upload during your application</small></div><span className="evidence-index">{String(index + 1).padStart(2, "0")}</span></li>)}</ul></section></div>
+    <div className="detail-callout"><LockKeyhole size={19} /><div><b>What you’ll need to know</b><p>You will provide your information and upload the evidence available to you during the application. You can save your progress and return later.</p></div></div>
+  </main>;
+}

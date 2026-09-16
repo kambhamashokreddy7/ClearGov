@@ -1,0 +1,7 @@
+import { ClipboardCheck, FileText, ListChecks, ShieldCheck } from "../lib/icons";
+import { EmptyState } from "../components/EmptyState";
+import { SectionHeading } from "../components/SectionHeading";
+
+export function Reviewer({ onExit }: { onExit: () => void }) {
+  return <main className="page-shell reviewer-page"><div className="reviewer-banner"><div><span className="eyebrow">Operations workspace</span><h1>Reviewer dashboard</h1><p>Review evidence issues and make decisions with a complete audit trail.</p></div><button className="button button--outline-light" onClick={onExit}>Return to citizen portal</button></div><div className="reviewer-stat-grid">{[["Applications", FileText], ["Review queue", ListChecks], ["Evidence issues", ShieldCheck], ["Decisions", ClipboardCheck]].map(([label, Icon]) => <div className="reviewer-stat" key={label as string}><Icon size={18} /><span>{label as string}</span><b>—</b><small>Awaiting live applications</small></div>)}</div><section className="reviewer-panel"><SectionHeading eyebrow="Human oversight" title="Review queue" copy="Applications escalated for a human decision will appear here." /><EmptyState type="review" /></section><div className="reviewer-footer-note"><ShieldCheck size={17} /><span>Critical eligibility logic remains rule-based. Reviewers resolve ambiguity, conflicts, and exceptional circumstances.</span></div></main>;
+}
