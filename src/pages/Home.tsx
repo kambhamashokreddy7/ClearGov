@@ -56,7 +56,7 @@ export function Home({
         <div className="gov-banner-content">
 
           <strong>
-            A more transparent, accessible and inclusive government
+            A More transparent, Accessible and Inclusive government
           </strong>
 
           <p>
